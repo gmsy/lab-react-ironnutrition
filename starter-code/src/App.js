@@ -12,6 +12,7 @@ export default class App extends Component {
     searchbar: "",
     amount: 1,
   };
+
   showFood = () => {
     return this.state.foods.map((eachFood, i) => {
       return (
@@ -24,11 +25,13 @@ export default class App extends Component {
       );
     });
   };
+
   toggleForm = () => {
     this.state.showForm
       ? this.setState({ showForm: false })
       : this.setState({ showForm: true });
   };
+
   submitFood = e => {
     e.preventDefault();
     let clone = [...this.state.foods];
@@ -41,15 +44,18 @@ export default class App extends Component {
     this.setState({ foods: clone });
     this.toggleForm();
   };
+
   updateInput = e => this.setState({ [e.target.name]: e.target.value });
   updateSearch = e => {
     let new_clone = foods.filter(obj => obj.name.includes(e.target.value));
     this.setState({ foods: new_clone, [e.target.name]: e.target.value });
   };
+
   todayFoods = (food, i) => {
     console.log(food.name);
     return food.name;
   };
+
   render() {
     return (
       <div className="App">
